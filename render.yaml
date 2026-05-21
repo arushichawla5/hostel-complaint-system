@@ -1,6 +1,5 @@
 services:
   - type: web
     name: hostel-complaint-system
-    env: java
-    buildCommand: mvn clean package
-    startCommand: java -jar target/hostel-complaint-system-0.0.1-SNAPSHOT.jar
+    env: docker
+    dockerfilePath: ./Dockerfile
