@@ -1,0 +1,10 @@
+com\example\hostel\config\SecurityConfig.class
+com\example\hostel\model\User.class
+com\example\hostel\repository\ComplaintRepository.class
+com\example\hostel\web\AuthController.class
+com\example\hostel\model\Complaint.class
+com\example\hostel\web\GlobalExceptionHandler.class
+com\example\hostel\repository\UserRepository.class
+com\example\hostel\web\ComplaintController.class
+com\example\hostel\service\CustomUserDetailsService.class
+com\example\hostel\HostelComplaintSystemApplication.class

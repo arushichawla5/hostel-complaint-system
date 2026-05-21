@@ -1,0 +1,1 @@
+web: java -jar target/hostel-complaint-system-0.0.1-SNAPSHOT.jar

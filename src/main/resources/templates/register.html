@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Register - Hostel Complaints</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+  <div class="container centered">
+    <div class="card">
+      <h2>Create your account</h2>
+      <p style="color:#6b7280;margin-top:-8px;">Quick and easy registration</p>
+      <div th:if="${error}" class="error" th:text="${error}"></div>
+      <form th:action="@{/register}" method="post" th:object="${user}">
+        <label>Username</label>
+        <input type="text" th:field="*{username}" required/>
+        <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        <label>Password</label>
+        <input type="password" th:field="*{password}" required/>
+        <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <div class="spacer"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <div class="spacer"></div>
+      <p>Already have account? <a href="/login">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>

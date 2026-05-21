@@ -1,0 +1,113 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="utf-8"/>-->
+<!--  <title>Your Complaints</title>-->
+<!--  <link rel="stylesheet" href="/css/styles.css"/>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <div class="container">-->
+<!--    <h2>Complaints</h2>-->
+<!--    <a href="/logout">Logout</a>-->
+<!--    <h3>Add Complaint</h3>-->
+<!--    <form th:action="@{/complaints/add}" method="post" th:object="${newComplaint}">-->
+<!--      <label>Title</label><input type="text" th:field="*{title}" required/>-->
+<!--      <label>Description</label><textarea th:field="*{description}" required></textarea>-->
+<!--      <button type="submit">Add</button>-->
+<!--    </form>-->
+
+<!--    <h3>Your previous complaints</h3>-->
+<!--    <div th:if="${#lists.isEmpty(complaints)}">No complaints yet.</div>-->
+<!--    <ul>-->
+<!--      <li th:each="c : ${complaints}">-->
+<!--        <strong th:text="${c.title}">Title</strong> - <span th:text="${c.status}">STATUS</span><br/>-->
+<!--        <span th:text="${c.description}">Desc</span><br/>-->
+<!--        <a th:href="@{'/complaints/edit/' + ${c.id}}">Edit</a>-->
+<!--        <form th:action="@{'/complaints/delete/' + ${c.id}}" method="post" style="display:inline">-->
+<!--          <button type="submit">Delete</button>-->
+<!--        </form>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>My Complaints</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav>-->
+<!--    <a href="/complaints">My Complaints</a> |-->
+<!--    <a href="/complaints/new">Raise Complaint</a> |-->
+<!--    <a href="/logout">Logout</a>-->
+<!--</nav>-->
+
+<!--<h2>My Complaints</h2>-->
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>Title</th>-->
+<!--        <th>Description</th>-->
+<!--        <th>Status</th>-->
+<!--        <th>Created At</th>-->
+<!--        <th>Action</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="c : ${complaints}">-->
+<!--        <td th:text="${c.title}"></td>-->
+<!--        <td th:text="${c.description}"></td>-->
+<!--        <td th:text="${c.status}"></td>-->
+<!--        <td th:text="${c.createdAt}"></td>-->
+<!--        <td><a th:href="@{'/complaints/edit/' + ${c.id}}">Edit</a></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Complaints Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="/complaints">My Complaints</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h2>Raise a New Complaint</h2>
+<form th:action="@{/complaints/add}" th:object="${newComplaint}" method="post">
+    <p>
+        <label>Title:</label><br>
+        <input type="text" th:field="*{title}" required/>
+    </p>
+    <p>
+        <label>Description:</label><br>
+        <textarea th:field="*{description}" required></textarea>
+    </p>
+    <button type="submit" class="btn">Submit Complaint</button>
+</form>
+
+<hr>
+
+<h2>My Complaints</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="c : ${complaints}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.title}"></td>
+        <td th:text="${c.description}"></td>
+        <td th:text="${c.status}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

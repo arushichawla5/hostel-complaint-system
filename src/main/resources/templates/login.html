@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Login - Hostel Complaint System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container centered">
+
+    <div class="card">
+    <h2 class="hero-title">Welcome to Hostel Complaint System</h2>
+    <p style="color:#6b7280;margin-top:-8px;">Sign in to continue</p>
+
+    <h3>User Login</h3>
+    <form method="post" action="/login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <input type="hidden" name="loginType" value="user"/>
+        <label>Username</label>
+        <input name="username" required/>
+        <label>Password</label>
+        <input name="password" type="password" required/>
+        <div class="spacer"></div>
+        <button class="btn" type="submit">Login as User</button>
+    </form>
+
+    <hr class="spacer"/>
+
+    <h3>Admin Login</h3>
+    <form method="post" action="/login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <input type="hidden" name="loginType" value="admin"/>
+        <label>Admin Username</label>
+        <input name="username" required value="admin"/>
+        <label>Password</label>
+        <input name="password" type="password" required/>
+        <div class="spacer"></div>
+        <button class="btn btn-secondary" type="submit">Login as Admin</button>
+    </form>
+
+    <div class="spacer"></div>
+    <p>Don't have an account? <a href="/register">Register</a></p>
+
+    <!-- Error display -->
+    <div th:if="${param.error}" class="error">
+        Invalid username or password.
+    </div>
+    </div>
+</div>
+</body>
+</html>
