@@ -4,10 +4,3 @@ services:
     env: java
     buildCommand: mvn clean package
     startCommand: java -jar target/hostel-complaint-system-0.0.1-SNAPSHOT.jar
-    envVars:
-      - key: DB_URL
-        sync: false
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
